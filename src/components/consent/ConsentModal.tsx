@@ -26,101 +26,103 @@ export default function ConsentModal({ isOpen, onClose, onAccept }: ConsentModal
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
-          {/* Study Introduction */}
-          <div>
-            <h3 className="text-xl font-semibold text-navy-700 mb-3">
-              MC1R Ginger Science Study
+        <div className="p-6 space-y-6 max-h-[60vh] overflow-y-auto">
+          {/* Header */}
+          <div className="text-center border-b border-gray-200 pb-4">
+            <h3 className="text-2xl font-bold text-navy-700 mb-2">
+              Ginger Science SPF Research Registry
             </h3>
-            <p className="text-gray-700 leading-relaxed">
-              This research study focuses on understanding sunscreen effectiveness and safety, 
-              particularly for individuals with specific genetic profiles. By participating, 
-              you'll contribute to scientific knowledge that could improve sun protection 
-              for millions of people worldwide.
+            <p className="text-lg font-semibold text-brand-600">
+              Informed Consent v.1.0
             </p>
           </div>
 
-          {/* Study Benefits */}
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-brand-50 rounded-lg">
-              <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <FaShieldAlt className="w-6 h-6 text-brand-500" />
-              </div>
-              <h4 className="font-semibold text-navy-700 mb-2">Safety First</h4>
-              <p className="text-sm text-gray-600">All products are FDA-approved and dermatologist-tested</p>
-            </div>
-            
-            <div className="text-center p-4 bg-brand-50 rounded-lg">
-              <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <FaUserCheck className="w-6 h-6 text-brand-500" />
-              </div>
-              <h4 className="font-semibold text-navy-700 mb-2">Personalized</h4>
-              <p className="text-sm text-gray-600">Receive recommendations tailored to your skin type</p>
-            </div>
-            
-            <div className="text-center p-4 bg-brand-50 rounded-lg">
-              <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <FaFileAlt className="w-6 h-6 text-brand-500" />
-              </div>
-              <h4 className="font-semibold text-navy-700 mb-2">Research Impact</h4>
-              <p className="text-sm text-gray-600">Help advance scientific understanding of sunscreen safety</p>
+          {/* Introduction */}
+          <div>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              The Ginger Science SPF Research Registry collects information from participants regarding sun protection product use, experiences, and preferences to better understand and address the unique sun protection needs of individuals with red hair and the MC1R genetic variant.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Registries collect and store data about specific characteristics from individuals with shared traits or conditions. By participating, you contribute valuable insights that help researchers and product developers create safer, more effective sun protection products tailored specifically for redheads.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              People with the MC1R variant have unique sun protection needs due to increased sensitivity to UV radiation. Today's technologies enable us to harness this information, leading to better research outcomes and improved products.
+            </p>
+          </div>
+
+          {/* How it Works */}
+          <div>
+            <h4 className="text-lg font-semibold text-navy-700 mb-3">
+              How does the Ginger Science SPF Research Registry work?
+            </h4>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              De-identified information regarding your sun protection product use, preferences, experiences, and related health data will be securely stored and used for research and product development purposes. The registry aims to improve understanding of sun protection effectiveness specifically for people with the MC1R gene variant. Additionally, this registry addresses practical needs, such as improving product recommendations and personalized skincare advice.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Researchers and product developers will access the registry to gather accurate data on sun protection usage, efficacy, and preferences among redheads. Researchers seeking participants for relevant studies and product testing will also use the registry.
+            </p>
+            <p className="text-gray-700 leading-relaxed font-semibold">
+              There is no cost to participate in the registry.
+            </p>
+          </div>
+
+          {/* Acknowledgment */}
+          <div>
+            <h4 className="text-lg font-semibold text-navy-700 mb-3">
+              By signing this document, you acknowledge the following:
+            </h4>
+            <div className="space-y-3 text-gray-700">
+              <p>• I understand my participation is voluntary, and I may withdraw at any time.</p>
+              <p>• I understand that efforts will be made to protect my privacy. My personal information will be securely stored using anonymized codes. However, there remains a minimal risk my identity could become known.</p>
+              <p>• I agree to be contacted periodically by the registry to update or verify my information.</p>
+              <p>• I consent to sharing my de-identified data for research studies and product development efforts related to sun protection and skincare.</p>
+              <p>• I understand my de-identified information may be shared with other reputable skincare and dermatological research databases.</p>
+              <p>• I acknowledge I may not directly benefit from participating, and my data may be used broadly in research and product development.</p>
+              <p>• I understand I may withdraw my consent at any time, although data already included in ongoing research or product development cannot be removed.</p>
             </div>
           </div>
 
-          {/* Protocol Summary */}
-          <div className="border border-gray-200 rounded-lg p-4">
-            <h4 className="font-semibold text-navy-700 mb-3">Study Protocol Summary</h4>
-            <div className="space-y-3 text-sm text-gray-700">
-              <div>
-                <strong>Duration:</strong> 12-week participation period with regular check-ins
-              </div>
-              <div>
-                <strong>What You'll Receive:</strong> Personalized sunscreen samples, skin analysis, progress reports
-              </div>
-              <div>
-                <strong>Your Commitment:</strong> Initial survey, product usage, weekly feedback, one virtual consultation
-              </div>
-              <div>
-                <strong>Privacy:</strong> All data is encrypted and stored securely. You may withdraw at any time.
-              </div>
+          {/* Optional Reidentification */}
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-navy-700 mb-3">
+              Optional: Conditional Reidentification for Follow-Up Research or Personalized Feedback
+            </h4>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              As part of the Ginger Science SPF Research Registry, your information is stored in a de-identified format. This means we remove personal details so that your identity is not linked to your responses in the research database.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              In some cases, researchers may want to follow up with participants to share findings, offer new research opportunities, or provide personalized insights. To make that possible, we ask for your optional consent to allow reidentification of your record under specific conditions.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              By opting in, you agree to the following:
+            </p>
+            <div className="space-y-2 text-gray-700 mb-4">
+              <p>• I consent to my de-identified data being re-linked to my identity only by authorized registry staff under secure and limited circumstances.</p>
+              <p>• I understand that this reidentification would be used solely to contact me for follow-up research, personalized feedback, or product testing invitations.</p>
+              <p>• I understand I may revoke this consent at any time by notifying the registry.</p>
+              <p>• I understand that my contact information will not be shared with third parties without my explicit, additional consent.</p>
             </div>
+            <p className="text-gray-700 leading-relaxed">
+              There are no penalties for declining this option, and your data will still be fully included in the registry and used for research in de-identified form.
+            </p>
           </div>
 
-          {/* Consent Checkboxes */}
-          <div className="space-y-4">
-            <div className="flex items-start space-x-3">
-              <input
-                type="checkbox"
-                id="consent-protocol"
-                className="mt-1 w-5 h-5 text-brand-500 border-gray-300 rounded focus:ring-brand-500"
-              />
-              <div>
-                <label htmlFor="consent-protocol" className="block font-medium text-navy-700 mb-1">
-                  I consent to participate in the MC1R Ginger Science Study
-                </label>
-                <p className="text-sm text-gray-600">
-                  I have read and understood the research protocol summary above. I agree to participate 
-                  in this study and understand that I may withdraw at any time without penalty.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start space-x-3">
-              <input
-                type="checkbox"
-                id="consent-shipping"
-                className="mt-1 w-5 h-5 text-brand-500 border-gray-300 rounded focus:ring-brand-500"
-              />
-              <div>
-                <label htmlFor="consent-shipping" className="block font-medium text-navy-700 mb-1">
-                  I agree to provide my shipping address for product samples
-                </label>
-                <p className="text-sm text-gray-600">
-                  I understand that I will receive sunscreen product samples at my provided address 
-                  and agree to use them as directed for the duration of the study.
-                </p>
-              </div>
-            </div>
+          {/* Final Statement */}
+          <div className="border-t border-gray-200 pt-4">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              I have read and understand this form, have been provided sufficient background information, had adequate time to ask questions, all my questions were answered, and I have decided to participate in the Ginger Science SPF Research Registry. I will receive a copy of this consent form.
+            </p>
+          </div>
+
+          {/* Contact Information */}
+          <div className="bg-brand-50 rounded-lg p-4">
+            <h4 className="font-semibold text-navy-700 mb-2">Contact Information</h4>
+            <p className="text-gray-700 text-sm">
+              For any questions about the Ginger Science SPF Research Registry or this consent form, please contact:
+            </p>
+            <p className="text-gray-700 text-sm font-medium">
+              Research Coordinator Ginger Science UV Survey: nina@gingerscience.org
+            </p>
           </div>
         </div>
 
@@ -136,7 +138,7 @@ export default function ConsentModal({ isOpen, onClose, onAccept }: ConsentModal
             onClick={onAccept}
             className="px-6 py-2 bg-brand-500 hover:bg-brand-600 text-white font-medium rounded-lg transition-colors"
           >
-            I Accept & Continue
+            I have reviewed the informed consent
           </button>
         </div>
       </div>

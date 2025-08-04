@@ -487,12 +487,12 @@ export default function ReviewPage() {
               </div>
             </div>
 
-            {/* UV Sticker Testing */}
-            <div>
-              <h3 className="text-xl font-semibold text-navy-700 mb-4 flex items-center">
-                <FaStar className="w-5 h-5 mr-2 text-brand-500" />
-                UV Sticker Testing
-              </h3>
+                                    {/* UV Sticker Testing */}
+                        <div>
+                          <h3 className="text-xl font-semibold text-navy-700 mb-4 flex items-center">
+                            <FaStar className="w-5 h-5 mr-2 text-brand-500" />
+                            UV Sticker Testing (optional)
+                          </h3>
 
               <div className="space-y-6">
                 <div>

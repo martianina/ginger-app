@@ -24,11 +24,11 @@ function SidebarHorizon(props: { routes: IRoute[]; [x: string]: any }) {
       {/* Scrollable Content */}
       <div className="flex flex-col h-screen overflow-y-auto">
         {/* Logo Card at Top */}
-        <div className="flex justify-center mt-[50px]">
+        <div className="flex justify-center mt-[30px]">
           <SidebarCard />
         </div>
 
-        <div className="mb-7 mt-[58px] h-px bg-gray-300" />
+        <div className="mb-4 mt-[38px] h-px bg-gray-300" />
         
         {/* Nav item */}
         <ul className="flex-1 pt-1 pb-10">

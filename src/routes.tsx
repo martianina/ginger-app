@@ -44,6 +44,7 @@ const routes = [
     name: 'Research',
     layout: '/admin',
     path: 'research',
+    customPath: '/research',
     icon: <FaFlask className="h-6 w-6" />,
   },
   {

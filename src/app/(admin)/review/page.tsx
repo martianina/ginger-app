@@ -56,22 +56,30 @@ export default function ReviewPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Check if participant is from the US
-    if (formData.climateContext.toLowerCase().includes('canada') || 
-        formData.climateContext.toLowerCase().includes('europe') ||
-        formData.climateContext.toLowerCase().includes('uk')) {
-      setShowCountryModal(true);
-      return;
-    }
-    
     setIsSubmitting(true);
 
-    // TODO: Add Google Sheets integration here
-    // For now, simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch('/api/review', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.details || result.error || 'Failed to submit review');
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Review submission error:', error);
+      setIsSubmitting(false);
+      alert('Failed to submit review. Please try again.');
+    }
   };
 
   const handleMailingListSignup = async () => {

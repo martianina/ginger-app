@@ -5,11 +5,12 @@ import React from 'react';
 // Icon Imports
 import {
   MdHome,
-  MdOutlineShoppingCart,
   MdBarChart,
   MdPerson,
   MdLock,
 } from 'react-icons/md';
+import { FaUserPlus, FaClipboardList, FaChartBar, FaFlask, FaShieldAlt, FaBoxes, FaDatabase } from 'react-icons/fa';
+import { IoDocuments } from 'react-icons/io5';
 
 const routes = [
   {
@@ -19,18 +20,59 @@ const routes = [
     icon: <MdHome className="h-6 w-6" />,
   },
   {
-    name: 'NFT Marketplace',
+    name: 'Study Enrollment',
     layout: '/admin',
-    path: 'nft-marketplace',
-    icon: <MdOutlineShoppingCart className="h-6 w-6" />,
-
-    secondary: true,
+    path: 'enrollment',
+    customPath: '/enrollment',
+    icon: <FaUserPlus className="h-6 w-6" />,
   },
   {
-    name: 'Data Tables',
+    name: 'Product Review',
     layout: '/admin',
-    icon: <MdBarChart className="h-6 w-6" />,
-    path: 'data-tables',
+    path: 'review',
+    customPath: '/review',
+    icon: <FaClipboardList className="h-6 w-6" />,
+  },
+  {
+    name: 'User Survey',
+    layout: '/admin',
+    path: 'survey',
+    customPath: '/survey',
+    icon: <FaChartBar className="h-6 w-6" />,
+  },
+  {
+    name: 'Research',
+    layout: '/admin',
+    path: 'research',
+    icon: <FaFlask className="h-6 w-6" />,
+  },
+  {
+    name: 'Protocol',
+    layout: '/admin',
+    path: 'protocol',
+    customPath: '/protocol',
+    icon: <IoDocuments className="h-6 w-6" />,
+  },
+  {
+    name: 'Regulatory',
+    layout: '/admin',
+    path: 'regulatory',
+    customPath: '/regulatory',
+    icon: <FaShieldAlt className="h-6 w-6" />,
+  },
+  {
+    name: 'Products',
+    layout: '/admin',
+    path: 'products',
+    customPath: '/products',
+    icon: <FaBoxes className="h-6 w-6" />,
+  },
+  {
+    name: 'MC1R Data Foundation',
+    layout: '/admin',
+    path: 'mc1r',
+    customPath: '/mc1r',
+    icon: <FaDatabase className="h-6 w-6" />,
   },
   {
     name: 'Profile',
@@ -43,12 +85,6 @@ const routes = [
     layout: '/auth',
     path: 'sign-in',
     icon: <MdLock className="h-6 w-6" />,
-  },
-  {
-    name: 'RTL Admin',
-    layout: '/rtl',
-    path: 'rtl-default',
-    icon: <MdHome className="h-6 w-6" />,
   },
 ];
 export default routes;

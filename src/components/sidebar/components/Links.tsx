@@ -24,8 +24,11 @@ export const SidebarLinks = (props: { routes: RoutesType[] }): JSX.Element => {
         route.layout === '/auth' ||
         route.layout === '/rtl'
       ) {
+        // Use customPath if available, otherwise construct from layout + path
+        const href = route.customPath || route.layout + '/' + route.path;
+        
         return (
-          <NavLink key={index} href={route.layout + '/' + route.path}>
+          <NavLink key={index} href={href}>
             <div className="relative mb-3 flex hover:cursor-pointer">
               <li
                 className="my-[3px] flex cursor-pointer items-center px-8"
@@ -34,8 +37,8 @@ export const SidebarLinks = (props: { routes: RoutesType[] }): JSX.Element => {
                 <span
                   className={`${
                     activeRoute(route.path)
-                      ? 'font-bold text-brand-500 dark:text-brand-200'
-                      : 'font-medium text-gray-700 dark:text-gray-300'
+                      ? 'font-bold text-brand-500'
+                      : 'font-medium text-gray-700'
                   }`}
                 >
                   {route.icon ? route.icon : <DashIcon />}
@@ -43,15 +46,15 @@ export const SidebarLinks = (props: { routes: RoutesType[] }): JSX.Element => {
                 <p
                   className={`leading-1 ml-4 flex ${
                     activeRoute(route.path)
-                      ? 'font-bold text-gray-700 dark:text-brand-200'
-                      : 'font-medium text-gray-700 dark:text-gray-300'
+                      ? 'font-bold text-gray-700'
+                      : 'font-medium text-gray-700'
                   }`}
                 >
                   {route.name}
                 </p>
               </li>
               {activeRoute(route.path) ? (
-                <div className="absolute right-0 top-px h-9 w-1 rounded-lg bg-brand-500 dark:bg-brand-400" />
+                <div className="absolute right-0 top-px h-9 w-1 rounded-lg bg-brand-500" />
               ) : null}
             </div>
           </NavLink>

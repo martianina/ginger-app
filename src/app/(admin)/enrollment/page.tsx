@@ -50,12 +50,31 @@ export default function EnrollmentPage() {
     
     setIsSubmitting(true);
 
-    // TODO: Add Google Sheets integration here
-    // For now, simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch('/api/enrollment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          hasConsented
+        }),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.details || result.error || 'Failed to submit enrollment');
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Enrollment submission error:', error);
+      setIsSubmitting(false);
+      alert('Failed to submit enrollment. Please try again.');
+    }
   };
 
   const handleMailingListSignup = async () => {

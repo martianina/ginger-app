@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { FaExternalLinkAlt, FaCalendarAlt, FaJournalWhills, FaTimes } from 'react-icons/fa';
-import { ResearchArticle } from 'data/researchArticles';
+import { ResearchArticle } from '@/data/researchArticles';
 
 interface ResearchCardProps {
   article: ResearchArticle;

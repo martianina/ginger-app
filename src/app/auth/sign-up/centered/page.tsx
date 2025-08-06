@@ -1,9 +1,9 @@
 'use client';
-import Card from 'components/card';
-import InputField from 'components/fields/InputField';
-import Centered from 'components/auth/variants/CenteredAuthLayout';
+import Card from '@/components/card';
+import InputField from '@/components/fields/InputField';
+import Centered from '@/components/auth/variants/CenteredAuthLayout';
 import { FcGoogle } from 'react-icons/fc';
-import Checkbox from 'components/checkbox';
+import Checkbox from '@/components/checkbox';
 
 function SignUpCenter() {
   return (

@@ -2,7 +2,7 @@
 import { IoDocuments } from 'react-icons/io5';
 import { FaUserPlus, FaClipboardList, FaChartBar, FaFlask, FaShieldAlt, FaBoxes, FaDatabase } from 'react-icons/fa';
 
-import Widget from 'components/widget/Widget';
+import Widget from '@/components/widget/Widget';
 import Link from 'next/link';
 
 const Dashboard = () => {

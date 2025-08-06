@@ -1,7 +1,7 @@
 // Assets
 import { MdFlag, MdCheck, MdChevronRight, MdLock } from 'react-icons/md';
 
-import Card from 'components/card';
+import Card from '@/components/card';
 import Image from 'next/image';
 
 const Completed = () => {

@@ -1,7 +1,7 @@
 'use client';
-import Centered from 'components/auth/variants/CenteredAuthLayout';
-import Card from 'components/card';
-import InputField from 'components/fields/InputField';
+import Centered from '@/components/auth/variants/CenteredAuthLayout';
+import Card from '@/components/card';
+import InputField from '@/components/fields/InputField';
 function LockCenter() {
   return (
     <Centered

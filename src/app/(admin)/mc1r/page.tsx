@@ -1,6 +1,6 @@
 'use client';
 
-import Card from 'components/card';
+import Card from '@/components/card';
 import { FaDna, FaUsers, FaShieldAlt, FaFlask, FaGlobe, FaHeart } from 'react-icons/fa';
 
 const MC1RDataFoundation = () => {

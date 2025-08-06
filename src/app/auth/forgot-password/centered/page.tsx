@@ -1,7 +1,7 @@
 'use client';
-import Card from 'components/card';
-import InputField from 'components/fields/InputField';
-import Centered from 'components/auth/variants/CenteredAuthLayout';
+import Card from '@/components/card';
+import InputField from '@/components/fields/InputField';
+import Centered from '@/components/auth/variants/CenteredAuthLayout';
 function ForgotPasswordCenter() {
   return (
     <Centered

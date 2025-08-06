@@ -1,6 +1,6 @@
 'use client';
-import Centered from 'components/auth/variants/CenteredAuthLayout';
-import Card from 'components/card';
+import Centered from '@/components/auth/variants/CenteredAuthLayout';
+import Card from '@/components/card';
 import PinInput from 'react-pin-input';
 
 function VerificationCenter() {

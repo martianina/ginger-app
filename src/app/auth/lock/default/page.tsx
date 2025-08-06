@@ -1,6 +1,6 @@
 'use client';
-import InputField from 'components/fields/InputField';
-import Default from 'components/auth/variants/DefaultAuthLayout';
+import InputField from '@/components/fields/InputField';
+import Default from '@/components/auth/variants/DefaultAuthLayout';
 
 function LockDefault() {
   return (

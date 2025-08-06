@@ -1,5 +1,5 @@
 // Assets
-import Card from 'components/card';
+import Card from '@/components/card';
 import { useState } from 'react';
 import { IoMdStar } from 'react-icons/io';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';

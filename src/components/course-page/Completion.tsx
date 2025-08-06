@@ -1,8 +1,8 @@
 // Assets
 import diploma from '/public/img/account/Diploma.png';
 import { MdFlag, MdCheck, MdChevronRight, MdLock } from 'react-icons/md';
-import CircularProgressMini from 'components/charts/CircularProgressMini';
-import Card from 'components/card';
+import CircularProgressMini from '@/components/charts/CircularProgressMini';
+import Card from '@/components/card';
 import Image from 'next/image';
 
 const Completed = () => {

@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from 'react';
 import { FaSearch, FaFilter, FaTags, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { researchArticles, categories, ResearchArticle } from 'data/researchArticles';
-import ResearchCard from 'components/research/ResearchCard';
+import { researchArticles, categories, ResearchArticle } from '@/data/researchArticles';
+import ResearchCard from '@/components/research/ResearchCard';
 
 const ResearchPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');

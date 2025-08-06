@@ -1,8 +1,8 @@
 import React from 'react';
-import NavbarAuth from 'components/navbar/NavbarAuth';
-import Footer from 'components/footer/FooterAuthCentered';
-import Sidebar from 'components/sidebar';
-import routes from 'routes';
+import NavbarAuth from '@/components/navbar/NavbarAuth';
+import Footer from '@/components/footer/FooterAuthCentered';
+import Sidebar from '@/components/sidebar';
+import routes from '@/routes';
 
 const Centered = (props: { maincard: JSX.Element }) => {
   const [open, setOpen] = React.useState(true);

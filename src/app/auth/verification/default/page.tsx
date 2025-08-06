@@ -1,5 +1,5 @@
 'use client';
-import Default from 'components/auth/variants/DefaultAuthLayout';
+import Default from '@/components/auth/variants/DefaultAuthLayout';
 import PinInput from 'react-pin-input';
 
 function VerificationDefault() {

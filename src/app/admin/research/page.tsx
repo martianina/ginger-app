@@ -1,8 +1,8 @@
 'use client';
 
 
-import projectsData from 'data/projectsData';
-import ProjectCard from 'components/card/ProjectCard';
+import projectsData from '@/data/projectsData';
+import ProjectCard from '@/components/card/ProjectCard';
 
 const Dashboard = () => {
   return (

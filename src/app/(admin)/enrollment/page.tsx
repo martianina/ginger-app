@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaUser, FaEnvelope, FaMapMarkerAlt, FaShieldAlt, FaCheckCircle, FaFileAlt, FaBoxes, FaTimes, FaGlobe } from 'react-icons/fa';
-import ConsentModal from 'components/consent/ConsentModal';
+import ConsentModal from '@/components/consent/ConsentModal';
 
 export default function EnrollmentPage() {
   const [showConsentModal, setShowConsentModal] = useState(false);

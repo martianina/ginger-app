@@ -2,15 +2,15 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import MiniCalendar from 'components/calendar/MiniCalendar';
+import MiniCalendar from '@/components/calendar/MiniCalendar';
 import { IoMdHome, IoDocuments, IoPeople } from 'react-icons/io';
 import { MdBarChart, MdDashboard, MdSecurity } from 'react-icons/md';
 import { FaUsers, FaUserCheck, FaUserClock } from 'react-icons/fa';
 
-import Widget from 'components/widget/Widget';
-import AdminUserTable from 'components/admin/AdminUserTable';
-import AdminStatsChart from 'components/admin/AdminStatsChart';
-import AdminActivityFeed from 'components/admin/AdminActivityFeed';
+import Widget from '@/components/widget/Widget';
+import AdminUserTable from '@/components/admin/AdminUserTable';
+import AdminStatsChart from '@/components/admin/AdminStatsChart';
+import AdminActivityFeed from '@/components/admin/AdminActivityFeed';
 
 interface AdminStats {
   totalUsers: number;

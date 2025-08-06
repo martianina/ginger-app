@@ -2,7 +2,7 @@
 import { PropsWithChildren } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import AuthNavbar from 'components/navbar/AuthNavbar';
+import AuthNavbar from '@/components/navbar/AuthNavbar';
 
 interface AuthLayoutProps extends PropsWithChildren {}
 

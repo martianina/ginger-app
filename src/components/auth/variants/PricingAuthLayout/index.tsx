@@ -1,5 +1,5 @@
 'use client';
-import NavbarAuth from 'components/navbar/NavbarAuth';
+import NavbarAuth from '@/components/navbar/NavbarAuth';
 import React, { useState } from 'react';
 import zoho from '/public/svg/zoho-logo.svg';
 import deloite from '/public/svg/deloitte-logo.svg';
@@ -7,10 +7,10 @@ import georgia from '/public/svg/georgia-logo.svg';
 import google from '/public/svg/google-logo.svg';
 import microsoft from '/public/svg/microsoft-logo.svg';
 import msn from '/public/svg/msn-logo.svg';
-import Footer from 'components/footer/Footer';
-import Card from 'components/card';
-import Sidebar from 'components/sidebar';
-import routes from 'routes';
+import Footer from '@/components/footer/Footer';
+import Card from '@/components/card';
+import Sidebar from '@/components/sidebar';
+import routes from '@/routes';
 import Image from 'next/image';
 
 function Pricing() {

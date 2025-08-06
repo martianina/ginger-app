@@ -19,8 +19,9 @@
     "noImplicitThis": true,
     "strictNullChecks": false,
     "downlevelIteration": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@/public/*": ["./src/assets/public/*"]
     },
     "incremental": true,

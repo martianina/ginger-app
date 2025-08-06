@@ -1,5 +1,6 @@
 'use client';
 import React, { ReactNode } from 'react';
+import { SessionProvider } from 'next-auth/react';
 import 'styles/App.css';
 import 'styles/Contact.css';
 // import '@asseinfo/react-kanban/dist/styles.css';
@@ -16,6 +17,10 @@ const NoSSR = dynamic(() => Promise.resolve(_NoSSR), {
 });
 
 export default function AppWrappers({ children }: { children: ReactNode }) {
-  // @ts-expect-error
-  return <NoSSR>{children}</NoSSR>;
+  return (
+    <SessionProvider>
+      {/* @ts-expect-error */}
+      <NoSSR>{children}</NoSSR>
+    </SessionProvider>
+  );
 }

@@ -2,36 +2,51 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
+import { signIn, getSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
     
-    // TODO: Implement sign-in logic
-    console.log('Sign in:', { email, password, rememberMe });
-    
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError('Invalid email or password');
+      } else {
+        router.push('/'); // Redirect to home page after successful sign-in
+      }
+    } catch (error) {
+      setError('An error occurred during sign-in');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
+    setError('');
     
-    // TODO: Implement Google sign-in
-    console.log('Google sign in');
-    
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await signIn('google', { callbackUrl: '/' });
+    } catch (error) {
+      setError('An error occurred during Google sign-in');
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -44,6 +59,12 @@ export default function SignInPage() {
           Welcome back! Please enter your details.
         </p>
       </div>
+
+      {error && (
+        <div className="rounded-lg bg-red-50 border border-red-200 p-3">
+          <p className="text-sm text-red-600">{error}</p>
+        </div>
+      )}
 
       <form className="space-y-4" onSubmit={handleSignIn}>
         {/* Google Sign In */}

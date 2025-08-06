@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -13,6 +15,9 @@ export default function SignUpPage() {
     acceptTerms: false
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const router = useRouter();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -25,26 +30,69 @@ export default function SignUpPage() {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // TODO: Implement sign-up logic
-    console.log('Sign up:', formData);
-    
-    // Simulate API call
-    setTimeout(() => {
+    setError('');
+    setSuccess('');
+
+    // Validate passwords match
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
       setIsLoading(false);
-    }, 1000);
+      return;
+    }
+
+    // Validate password strength
+    if (formData.password.length < 8) {
+      setError('Password must be at least 8 characters long');
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'Failed to create account');
+      } else {
+        setSuccess('Account created successfully! Please check your email to verify your account.');
+        // Clear form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          acceptTerms: false
+        });
+      }
+    } catch (error) {
+      setError('An error occurred during sign-up');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleGoogleSignUp = async () => {
     setIsLoading(true);
+    setError('');
     
-    // TODO: Implement Google sign-up
-    console.log('Google sign up');
-    
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await signIn('google', { callbackUrl: '/' });
+    } catch (error) {
+      setError('An error occurred during Google sign-up');
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -57,6 +105,18 @@ export default function SignUpPage() {
           Join us! Please enter your details to get started.
         </p>
       </div>
+
+      {error && (
+        <div className="rounded-lg bg-red-50 border border-red-200 p-3">
+          <p className="text-sm text-red-600">{error}</p>
+        </div>
+      )}
+
+      {success && (
+        <div className="rounded-lg bg-green-50 border border-green-200 p-3">
+          <p className="text-sm text-green-600">{success}</p>
+        </div>
+      )}
 
       <form className="space-y-4" onSubmit={handleSignUp}>
         {/* Google Sign Up */}

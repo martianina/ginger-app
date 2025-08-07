@@ -24,6 +24,7 @@
     "apexcharts": "^3.35.2",
     "framer-motion": "^7.10.2",
     "github-slugger": "^2.0.0",
+    "googleapis": "^155.0.0",
     "hast-util-from-html-isomorphic": "^2.0.0",
     "next": "^15.1.4",
     "next-auth": "^4.24.11",

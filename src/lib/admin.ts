@@ -21,9 +21,9 @@ export interface AdminStats {
 }
 
 // Check if current user is admin
-export async function isAdmin(): Promise<boolean> {
+export async function isAdmin(request?: Request): Promise<boolean> {
   try {
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions, request ? { req: request } : undefined);
     if (!session?.user?.email) return false;
 
     const { data: user } = await supabaseAdmin

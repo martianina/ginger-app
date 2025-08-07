@@ -8,13 +8,13 @@ export async function DELETE(request: NextRequest) {
     const url = new URL(request.url);
     const userId = url.pathname.split('/').pop();
 
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions, { req: request });
     
     if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const adminStatus = await isAdmin();
+    const adminStatus = await isAdmin(request);
     
     if (!adminStatus) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });

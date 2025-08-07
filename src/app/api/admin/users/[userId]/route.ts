@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { auth } from '@/lib/auth';
 import { isAdmin, deleteUser } from '@/lib/admin';
 
 export async function DELETE(request: NextRequest) {
@@ -8,13 +7,13 @@ export async function DELETE(request: NextRequest) {
     const url = new URL(request.url);
     const userId = url.pathname.split('/').pop();
 
-    const session = await getServerSession(authOptions, { req: request });
+    const session = await auth();
     
     if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const adminStatus = await isAdmin(request);
+    const adminStatus = await isAdmin();
     
     if (!adminStatus) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });

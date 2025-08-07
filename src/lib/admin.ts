@@ -1,6 +1,5 @@
 import { supabaseAdmin } from './supabase';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { auth } from '@/lib/auth';
 
 export interface User {
   id: string;
@@ -21,9 +20,9 @@ export interface AdminStats {
 }
 
 // Check if current user is admin
-export async function isAdmin(request?: Request): Promise<boolean> {
+export async function isAdmin(): Promise<boolean> {
   try {
-    const session = await getServerSession(authOptions, request ? { req: request } : undefined);
+    const session = await auth();
     if (!session?.user?.email) return false;
 
     const { data: user } = await supabaseAdmin

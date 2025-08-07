@@ -96,25 +96,21 @@ const AdminDashboard = () => {
           icon={<FaUsers className="h-7 w-7" />}
           title={'Total Users'}
           subtitle={stats.totalUsers.toString()}
-          color="blue"
         />
         <Widget
           icon={<FaUserClock className="h-6 w-6" />}
           title={'New This Week'}
           subtitle={stats.newUsersThisWeek.toString()}
-          color="green"
         />
         <Widget
           icon={<FaUserCheck className="h-7 w-7" />}
           title={'Verified Users'}
           subtitle={stats.verifiedUsers.toString()}
-          color="purple"
         />
         <Widget
           icon={<MdSecurity className="h-6 w-6" />}
           title={'Admin Users'}
           subtitle={stats.adminUsers.toString()}
-          color="orange"
         />
       </div>
 

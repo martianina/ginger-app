@@ -3,11 +3,11 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { isAdmin, deleteUser } from '@/lib/admin';
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { userId: string } }
-) {
+export async function DELETE(request: NextRequest) {
   try {
+    const url = new URL(request.url);
+    const userId = url.pathname.split('/').pop();
+
     const session = await getServerSession(authOptions);
     
     if (!session) {
@@ -19,8 +19,6 @@ export async function DELETE(
     if (!adminStatus) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
-
-    const { userId } = params;
 
     if (!userId) {
       return NextResponse.json({ error: 'User ID required' }, { status: 400 });

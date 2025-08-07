@@ -1,7 +1,0 @@
-{
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/page": "app/page.js",
-  "/auth/sign-in/page": "app/auth/sign-in/page.js",
-  "/admin/research/page": "app/admin/research/page.js",
-  "/admin/default/page": "app/admin/default/page.js"
-}

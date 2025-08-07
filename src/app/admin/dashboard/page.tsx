@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import MiniCalendar from '@/components/calendar/MiniCalendar';
-import { IoMdHome, IoDocuments, IoPeople } from 'react-icons/io';
-import { MdBarChart, MdDashboard, MdSecurity } from 'react-icons/md';
+import { MdSecurity } from 'react-icons/md';
 import { FaUsers, FaUserCheck, FaUserClock } from 'react-icons/fa';
 
 import Widget from '@/components/widget/Widget';

@@ -2,7 +2,6 @@ import React from 'react';
 import Dropdown from '@/components/dropdown';
 import { FiAlignJustify } from 'react-icons/fi';
 import NavLink from '@/components/link/NavLink';
-import { BsArrowBarUp } from 'react-icons/bs';
 import { FiSearch } from 'react-icons/fi';
 import {
   IoMdNotificationsOutline,

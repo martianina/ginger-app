@@ -8,10 +8,11 @@ export interface IRoute {
   path: string;
   secondary?: boolean | undefined;
 }
-interface RoutesType {
+export interface RoutesType {
   name: string;
   layout: string;
   icon: JSX.Element | string;
   path: string;
   secondary?: boolean | undefined;
+  customPath?: string;
 }

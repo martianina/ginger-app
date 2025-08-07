@@ -1,5 +1,5 @@
 'use client';
-import NavbarAuth from '@/components/navbar/NavbarAuth';
+import AuthNavbar from '@/components/navbar/AuthNavbar';
 import React, { useState } from 'react';
 import zoho from '/public/svg/zoho-logo.svg';
 import deloite from '/public/svg/deloitte-logo.svg';
@@ -29,7 +29,7 @@ function Pricing() {
         onClose={() => setOpen(false)}
       />
       <div className="z-1 relative">
-        <NavbarAuth onOpenSidenav={() => setOpen(!open)} />
+        <AuthNavbar />
         {/* Header content */}
         <div className="mx-auto mt-[96px] flex w-full max-w-screen-sm flex-col items-center justify-center text-center md:px-3">
           <h2 className="text-[28px] font-bold text-white md:text-[44px]">

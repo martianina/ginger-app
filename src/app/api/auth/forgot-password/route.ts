@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
 import { mailerLite } from '@/lib/mailerlite';
 import { randomBytes } from 'crypto';
+import type { User } from '@supabase/supabase-js';
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,9 +17,19 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user exists
-    const { data: { user }, error } = await supabaseAdmin.auth.admin.getUserByEmail(email);
+    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
     
-    if (error || !user) {
+    if (listError) {
+      console.error('Error listing users:', listError);
+      return NextResponse.json(
+        { error: 'Internal server error' },
+        { status: 500 }
+      );
+    }
+
+    const user = users.find((u: User) => u.email === email);
+    
+    if (!user) {
       // Don't reveal if user exists or not for security
       return NextResponse.json(
         { message: 'If an account with that email exists, a password reset link has been sent.' },

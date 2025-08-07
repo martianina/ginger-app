@@ -1,6 +1,6 @@
 import React from 'react';
-import NavbarAuth from '@/components/navbar/NavbarAuth';
-import Footer from '@/components/footer/FooterAuthCentered';
+import AuthNavbar from '@/components/navbar/AuthNavbar';
+import Footer from '@/components/footer/FooterAuthDefault';
 import Sidebar from '@/components/sidebar';
 import routes from '@/routes';
 
@@ -16,7 +16,7 @@ const Centered = (props: { maincard: JSX.Element }) => {
         setOpen={setOpen}
         onClose={() => setOpen(false)}
       />
-      <NavbarAuth onOpenSidenav={() => setOpen(!open)} />
+      <AuthNavbar />
       {/* <FixedPlugin /> */}
       <div className="absolute left-0 right-0 top-0 max-h-[48vh] min-h-[48vh] w-full overflow-hidden bg-gradient-to-br from-brand-400 to-brand-600 bg-cover bg-no-repeat md:mx-auto" />
       {/* bgImage={image} */}

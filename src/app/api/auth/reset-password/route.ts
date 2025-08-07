@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import type { User } from '@supabase/supabase-js';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,7 +25,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const user = users.find(u => 
+    const user = users.find((u: User) => 
       u.user_metadata?.reset_token === token && 
       u.user_metadata?.reset_expires > new Date().toISOString()
     );
@@ -92,7 +93,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const user = users.find(u => 
+    const user = users.find((u: User) => 
       u.user_metadata?.reset_token === token && 
       u.user_metadata?.reset_expires > new Date().toISOString()
     );

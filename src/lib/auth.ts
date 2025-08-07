@@ -1,3 +1,4 @@
+import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { SupabaseAdapter } from '@auth/supabase-adapter';
@@ -7,8 +8,6 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
-
-import NextAuth from 'next-auth';
 
 export const authOptions = {
   adapter: SupabaseAdapter({
@@ -54,7 +53,7 @@ export const authOptions = {
     }),
   ],
   session: {
-    strategy: 'jwt',
+    strategy: 'jwt' as const,
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -77,5 +76,5 @@ export const authOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
+export const { auth } = NextAuth(authOptions);
 
-export const { auth, handlers } = NextAuth(authOptions);

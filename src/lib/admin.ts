@@ -1,6 +1,6 @@
 import { supabaseAdmin } from './supabase';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 
 export interface User {
   id: string;

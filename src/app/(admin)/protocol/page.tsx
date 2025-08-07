@@ -1,7 +1,5 @@
 'use client';
 
-import { Card } from '@/components/card';
-import { Widget } from '@/components/widget/Widget';
 import { FaFileAlt, FaUsers, FaShieldAlt, FaFlask, FaGlobe, FaBalanceScale, FaClipboardList, FaDatabase, FaLock, FaQrcode, FaBoxOpen } from 'react-icons/fa';
 
 const ProtocolPage = () => {

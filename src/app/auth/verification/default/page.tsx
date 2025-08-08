@@ -1,6 +1,5 @@
 'use client';
 import Default from '@/components/auth/variants/DefaultAuthLayout';
-import PinInput from 'react-pin-input';
 
 function VerificationDefault() {
   return (
@@ -17,26 +16,12 @@ function VerificationDefault() {
             </p>
             {/* verification */}
             <div className="mb-4 mt-7 flex w-full items-center justify-center">
-              <PinInput
-                length={4}
-                initialValue=""
-                onChange={(value, index) => {}}
-                type="numeric"
-                inputMode="number"
-                style={{ marginBottom: '10px' }}
-                inputStyle={{
-                  borderWidth: '2px',
-                  width: '92px',
-                  height: '92px',
-                  borderColor: '#E0E5F2',
-                  borderRadius: '16px',
-                  color: '#2B3674',
-                  fontSize: '36px',
-                }}
-                inputFocusStyle={{ borderColor: '#4318FF', borderWidth: '3px' }}
-                onComplete={(value, index) => {}}
-                autoSelect={true}
-                regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+              <input
+                type="text"
+                placeholder="Enter 4-digit code"
+                maxLength={4}
+                className="w-full max-w-xs rounded-xl border-2 border-gray-200 px-4 py-3 text-center text-2xl font-bold text-navy-700 focus:border-brand-500 focus:outline-none dark:border-gray-600 dark:bg-navy-800 dark:text-white"
+                style={{ letterSpacing: '0.5em' }}
               />
             </div>
             {/* button */}

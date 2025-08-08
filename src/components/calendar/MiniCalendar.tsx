@@ -1,9 +1,14 @@
+'use client';
 import { useState } from 'react';
-import Calendar from 'react-calendar';
+import dynamic from 'next/dynamic';
 import Card from '@/components/card';
-import 'react-calendar/dist/Calendar.css';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import '@/styles/MiniCalendar.css';
+
+const Calendar = dynamic(() => import('react-calendar'), {
+  ssr: false,
+  loading: () => <div className="h-64 w-full animate-pulse bg-gray-200 rounded"></div>
+});
 
 const MiniCalendar = () => {
   const [value, onChange] = useState(new Date());

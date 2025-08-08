@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import MiniCalendar from '@/components/calendar/MiniCalendar';
+
 import { MdSecurity } from 'react-icons/md';
 import { FaUsers, FaUserCheck, FaUserClock } from 'react-icons/fa';
 
@@ -158,7 +158,9 @@ const AdminDashboard = () => {
         {/* Calendar */}
         <div className="lg:col-span-2 rounded-[20px] bg-white p-6 shadow-xl">
           <h3 className="text-lg font-semibold mb-4">Calendar</h3>
-          <MiniCalendar />
+          <div className="text-gray-500 text-center py-8">
+            Calendar component removed
+          </div>
         </div>
       </div>
     </div>

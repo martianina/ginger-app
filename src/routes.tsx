@@ -9,7 +9,7 @@ import {
   MdPerson,
   MdLock,
 } from 'react-icons/md';
-import { FaUserPlus, FaClipboardList, FaChartBar, FaFlask, FaShieldAlt, FaBoxes, FaDatabase } from 'react-icons/fa';
+import { FaUserPlus, FaClipboardList, FaChartBar, FaFlask, FaShieldAlt, FaBoxes, FaDatabase, FaFileAlt, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import { IoDocuments } from 'react-icons/io5';
 
 const routes = [
@@ -20,25 +20,55 @@ const routes = [
     icon: <MdHome className="h-6 w-6" />,
   },
   {
-    name: 'Study Enrollment',
+    name: 'SPF Study',
     layout: '/admin',
-    path: 'enrollment',
-    customPath: '/enrollment',
-    icon: <FaUserPlus className="h-6 w-6" />,
-  },
-  {
-    name: 'Product Review',
-    layout: '/admin',
-    path: 'review',
-    customPath: '/review',
-    icon: <FaClipboardList className="h-6 w-6" />,
-  },
-  {
-    name: 'User Survey',
-    layout: '/admin',
-    path: 'survey',
-    customPath: '/survey',
-    icon: <FaChartBar className="h-6 w-6" />,
+    path: 'spf-study',
+    icon: <FaFlask className="h-6 w-6" />,
+    isDropdown: true,
+    children: [
+      {
+        name: 'Study Enrollment',
+        layout: '/admin',
+        path: 'enrollment',
+        customPath: '/enrollment',
+        icon: <FaUserPlus className="h-6 w-6" />,
+      },
+      {
+        name: 'Product Review',
+        layout: '/admin',
+        path: 'review',
+        customPath: '/review',
+        icon: <FaClipboardList className="h-6 w-6" />,
+      },
+      {
+        name: 'User Survey',
+        layout: '/admin',
+        path: 'survey',
+        customPath: '/survey',
+        icon: <FaChartBar className="h-6 w-6" />,
+      },
+      {
+        name: 'Protocol',
+        layout: '/admin',
+        path: 'protocol',
+        customPath: '/protocol',
+        icon: <IoDocuments className="h-6 w-6" />,
+      },
+      {
+        name: 'Regulatory',
+        layout: '/admin',
+        path: 'regulatory',
+        customPath: '/regulatory',
+        icon: <FaShieldAlt className="h-6 w-6" />,
+      },
+      {
+        name: 'Products',
+        layout: '/admin',
+        path: 'products',
+        customPath: '/products',
+        icon: <FaBoxes className="h-6 w-6" />,
+      },
+    ],
   },
   {
     name: 'Research',
@@ -48,32 +78,27 @@ const routes = [
     icon: <FaFlask className="h-6 w-6" />,
   },
   {
-    name: 'Protocol',
+    name: 'About',
     layout: '/admin',
-    path: 'protocol',
-    customPath: '/protocol',
-    icon: <IoDocuments className="h-6 w-6" />,
-  },
-  {
-    name: 'Regulatory',
-    layout: '/admin',
-    path: 'regulatory',
-    customPath: '/regulatory',
-    icon: <FaShieldAlt className="h-6 w-6" />,
-  },
-  {
-    name: 'Products',
-    layout: '/admin',
-    path: 'products',
-    customPath: '/products',
-    icon: <FaBoxes className="h-6 w-6" />,
-  },
-  {
-    name: 'MC1R Data Foundation',
-    layout: '/admin',
-    path: 'mc1r',
-    customPath: '/mc1r',
+    path: 'about',
     icon: <FaDatabase className="h-6 w-6" />,
+    isDropdown: true,
+    children: [
+      {
+        name: 'MC1R Data Foundation',
+        layout: '/admin',
+        path: 'mc1r',
+        customPath: '/mc1r',
+        icon: <FaDatabase className="h-6 w-6" />,
+      },
+      {
+        name: 'Whitepaper',
+        layout: '/admin',
+        path: 'whitepaper',
+        customPath: '/whitepaper',
+        icon: <FaFileAlt className="h-6 w-6" />,
+      },
+    ],
   },
   {
     name: 'Profile',

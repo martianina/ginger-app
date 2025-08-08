@@ -15,4 +15,6 @@ export interface RoutesType {
   path: string;
   secondary?: boolean | undefined;
   customPath?: string;
+  isDropdown?: boolean;
+  children?: RoutesType[];
 }

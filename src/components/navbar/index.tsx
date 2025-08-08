@@ -18,20 +18,20 @@ const Navbar = (props: {
 }) => {
   const { onOpenSidenav, brandText, mini, hovered } = props;
   return (
-    <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-end rounded-xl bg-white/10 p-2 backdrop-blur-xl">
-      <div className="relative mt-[3px] flex h-[61px] w-[355px] flex-grow items-center justify-around gap-2 rounded-full bg-white px-2 py-2 shadow-xl shadow-shadow-500 md:w-[365px] md:flex-grow-0 md:gap-1 xl:w-[365px] xl:gap-2">
-        <div className="flex h-full items-center rounded-full bg-lightPrimary text-navy-700 xl:w-[225px]">
+    <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-end rounded-xl bg-orange-200/80 p-2 backdrop-blur-xl border border-orange-300">
+      <div className="relative mt-[3px] flex h-[61px] w-[355px] flex-grow items-center justify-around gap-2 rounded-full bg-white px-2 py-2 shadow-xl shadow-orange-300/50 md:w-[365px] md:flex-grow-0 md:gap-1 xl:w-[365px] xl:gap-2">
+        <div className="flex h-full items-center rounded-full bg-orange-50 text-orange-800 xl:w-[225px] border border-orange-200">
           <p className="pl-3 pr-2 text-xl">
-            <FiSearch className="h-4 w-4 text-gray-400" />
+            <FiSearch className="h-4 w-4 text-orange-500" />
           </p>
           <input
             type="text"
             placeholder="Search..."
-            className="block h-full w-full rounded-full bg-lightPrimary text-sm font-medium text-navy-700 outline-none placeholder:!text-gray-400 sm:w-fit"
+            className="block h-full w-full rounded-full bg-orange-50 text-sm font-medium text-orange-800 outline-none placeholder:!text-orange-400 sm:w-fit"
           />
         </div>
         <span
-          className="flex cursor-pointer text-xl text-gray-600 xl:hidden"
+          className="flex cursor-pointer text-xl text-orange-600 xl:hidden"
           onClick={onOpenSidenav}
         >
           <FiAlignJustify className="h-5 w-5" />
@@ -40,7 +40,7 @@ const Navbar = (props: {
         <Dropdown
           button={
             <p className="cursor-pointer">
-              <IoMdNotificationsOutline className="h-4 w-4 text-gray-600" />
+              <IoMdNotificationsOutline className="h-4 w-4 text-orange-600" />
             </p>
           }
           animation="origin-[65%_0%] md:origin-top-right transition-all duration-300 ease-in-out"
@@ -64,7 +64,7 @@ const Navbar = (props: {
         <Dropdown
           button={
             <p className="cursor-pointer">
-              <IoMdInformationCircleOutline className="h-4 w-4 text-gray-600" />
+              <IoMdInformationCircleOutline className="h-4 w-4 text-orange-600" />
             </p>
           }
           classNames={'py-2 top-6 -left-[250px] md:-left-[330px] w-max'}

@@ -25,7 +25,7 @@ export async function isAdmin(): Promise<boolean> {
     const session = await auth();
     if (!session?.user?.email) return false;
 
-    const { data: user } = await supabaseAdmin
+    const { data: user } = await supabaseAdmin()
       .from('users')
       .select('role')
       .eq('email', session.user.email)
@@ -42,7 +42,7 @@ export async function isAdmin(): Promise<boolean> {
 export async function getAdminStats(): Promise<AdminStats> {
   try {
     // Get total users
-    const { count: totalUsers } = await supabaseAdmin
+    const { count: totalUsers } = await supabaseAdmin()
       .from('users')
       .select('*', { count: 'exact', head: true });
 
@@ -50,25 +50,25 @@ export async function getAdminStats(): Promise<AdminStats> {
     const oneWeekAgo = new Date();
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
     
-    const { count: newUsersThisWeek } = await supabaseAdmin
+    const { count: newUsersThisWeek } = await supabaseAdmin()
       .from('users')
       .select('*', { count: 'exact', head: true })
       .gte('created_at', oneWeekAgo.toISOString());
 
     // Get verified users
-    const { count: verifiedUsers } = await supabaseAdmin
+    const { count: verifiedUsers } = await supabaseAdmin()
       .from('users')
       .select('*', { count: 'exact', head: true })
       .eq('email_verified', true);
 
     // Get admin users
-    const { count: adminUsers } = await supabaseAdmin
+    const { count: adminUsers } = await supabaseAdmin()
       .from('users')
       .select('*', { count: 'exact', head: true })
       .eq('role', 'admin');
 
     // Get recent signups (last 10)
-    const { data: recentSignups } = await supabaseAdmin
+    const { data: recentSignups } = await supabaseAdmin()
       .from('users')
       .select('*')
       .order('created_at', { ascending: false })
@@ -79,7 +79,7 @@ export async function getAdminStats(): Promise<AdminStats> {
       newUsersThisWeek: newUsersThisWeek || 0,
       verifiedUsers: verifiedUsers || 0,
       adminUsers: adminUsers || 0,
-      recentSignups: recentSignups || [],
+      recentSignups: (recentSignups || []) as unknown as User[],
     };
   } catch (error) {
     console.error('Error getting admin stats:', error);
@@ -96,12 +96,12 @@ export async function getAdminStats(): Promise<AdminStats> {
 // Get all users for admin table
 export async function getAllUsers(): Promise<User[]> {
   try {
-    const { data: users } = await supabaseAdmin
+    const { data: users } = await supabaseAdmin()
       .from('users')
       .select('*')
       .order('created_at', { ascending: false });
 
-    return users || [];
+    return (users || []) as unknown as User[];
   } catch (error) {
     console.error('Error getting users:', error);
     return [];
@@ -111,7 +111,7 @@ export async function getAllUsers(): Promise<User[]> {
 // Update user role
 export async function updateUserRole(userId: string, role: 'admin' | 'user'): Promise<boolean> {
   try {
-    const { error } = await supabaseAdmin
+    const { error } = await supabaseAdmin()
       .from('users')
       .update({ role })
       .eq('id', userId);
@@ -126,7 +126,7 @@ export async function updateUserRole(userId: string, role: 'admin' | 'user'): Pr
 // Delete user
 export async function deleteUser(userId: string): Promise<boolean> {
   try {
-    const { error } = await supabaseAdmin
+    const { error } = await supabaseAdmin()
       .from('users')
       .delete()
       .eq('id', userId);

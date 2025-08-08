@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Find user by reset token
-    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
+    const { data: { users }, error: listError } = await supabaseAdmin().auth.admin.listUsers();
     
     if (listError) {
       console.error('Error listing users:', listError);
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Update password
-    const { error: updateError } = await supabaseAdmin.auth.admin.updateUserById(user.id, {
+    const { error: updateError } = await supabaseAdmin().auth.admin.updateUserById(user.id, {
       password,
       user_metadata: {
         ...user.user_metadata,
@@ -83,7 +83,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Find user by reset token
-    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
+    const { data: { users }, error: listError } = await supabaseAdmin().auth.admin.listUsers();
     
     if (listError) {
       console.error('Error listing users:', listError);

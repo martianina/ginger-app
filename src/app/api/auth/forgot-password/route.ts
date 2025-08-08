@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user exists
-    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
+    const { data: { users }, error: listError } = await supabaseAdmin().auth.admin.listUsers();
     
     if (listError) {
       console.error('Error listing users:', listError);
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     const resetExpires = new Date(Date.now() + 60 * 60 * 1000).toISOString(); // 1 hour
 
     // Store reset token in user metadata
-    await supabaseAdmin.auth.admin.updateUserById(user.id, {
+    await supabaseAdmin().auth.admin.updateUserById(user.id, {
       user_metadata: {
         ...user.user_metadata,
         reset_token: resetToken,

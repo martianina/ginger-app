@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Find user by verification token
-    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
+    const { data: { users }, error: listError } = await supabaseAdmin().auth.admin.listUsers();
     
     if (listError) {
       console.error('Error listing users:', listError);
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Mark email as verified and clear token
-    const { error: updateError } = await supabaseAdmin.auth.admin.updateUserById(user.id, {
+    const { error: updateError } = await supabaseAdmin().auth.admin.updateUserById(user.id, {
       email_confirm: true,
       user_metadata: {
         ...user.user_metadata,
@@ -85,7 +85,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Find user by verification token
-    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
+    const { data: { users }, error: listError } = await supabaseAdmin().auth.admin.listUsers();
     
     if (listError) {
       console.error('Error listing users:', listError);

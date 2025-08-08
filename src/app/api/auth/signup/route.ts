@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user already exists
-    const { data: existingUsers, error: checkError } = await supabaseAdmin
+    const { data: existingUsers, error: checkError } = await supabaseAdmin()
       .from('users')
       .select('id')
       .eq('email', email)
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     const isFirstUser = true; // Temporary - will be replaced with actual check
 
     // Create user in Supabase Auth
-    const { data: { user }, error } = await supabaseAdmin.auth.admin.createUser({
+    const { data: { user }, error } = await supabaseAdmin().auth.admin.createUser({
       email,
       password,
       email_confirm: true, // Auto-confirm email for now
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     const verificationToken = randomBytes(32).toString('hex');
     
     // Store verification token in user metadata
-    const { error: updateError } = await supabaseAdmin.auth.admin.updateUserById(user.id, {
+    const { error: updateError } = await supabaseAdmin().auth.admin.updateUserById(user.id, {
       user_metadata: {
         ...user.user_metadata,
         verification_token: verificationToken,

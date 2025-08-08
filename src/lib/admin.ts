@@ -19,8 +19,18 @@ export interface AdminStats {
   recentSignups: User[];
 }
 
+// Check if we're in a build environment
+const isBuildTime = () => {
+  return process.env.NODE_ENV === 'production' && !process.env.VERCEL_ENV;
+};
+
 // Check if current user is admin
 export async function isAdmin(): Promise<boolean> {
+  // Skip during build time
+  if (isBuildTime()) {
+    return false;
+  }
+
   try {
     const session = await auth();
     if (!session?.user?.email) return false;
@@ -40,6 +50,17 @@ export async function isAdmin(): Promise<boolean> {
 
 // Get admin dashboard stats
 export async function getAdminStats(): Promise<AdminStats> {
+  // Skip during build time
+  if (isBuildTime()) {
+    return {
+      totalUsers: 0,
+      newUsersThisWeek: 0,
+      verifiedUsers: 0,
+      adminUsers: 0,
+      recentSignups: [],
+    };
+  }
+
   try {
     // Get total users
     const { count: totalUsers } = await supabaseAdmin()
@@ -95,6 +116,11 @@ export async function getAdminStats(): Promise<AdminStats> {
 
 // Get all users for admin table
 export async function getAllUsers(): Promise<User[]> {
+  // Skip during build time
+  if (isBuildTime()) {
+    return [];
+  }
+
   try {
     const { data: users } = await supabaseAdmin()
       .from('users')
@@ -110,6 +136,11 @@ export async function getAllUsers(): Promise<User[]> {
 
 // Update user role
 export async function updateUserRole(userId: string, role: 'admin' | 'user'): Promise<boolean> {
+  // Skip during build time
+  if (isBuildTime()) {
+    return false;
+  }
+
   try {
     const { error } = await supabaseAdmin()
       .from('users')
@@ -125,6 +156,11 @@ export async function updateUserRole(userId: string, role: 'admin' | 'user'): Pr
 
 // Delete user
 export async function deleteUser(userId: string): Promise<boolean> {
+  // Skip during build time
+  if (isBuildTime()) {
+    return false;
+  }
+
   try {
     const { error } = await supabaseAdmin()
       .from('users')

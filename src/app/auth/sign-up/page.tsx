@@ -75,6 +75,11 @@ export default function SignUpPage() {
           confirmPassword: '',
           acceptTerms: false
         });
+        
+        // Redirect to admin dashboard after successful signup
+        setTimeout(() => {
+          router.push('/admin/default');
+        }, 2000);
       }
     } catch (error) {
       setError('An error occurred during sign-up');
@@ -88,7 +93,7 @@ export default function SignUpPage() {
     setError('');
     
     try {
-      await signIn('google', { callbackUrl: '/' });
+      await signIn('google', { callbackUrl: '/admin/default' });
     } catch (error) {
       setError('An error occurred during Google sign-up');
       setIsLoading(false);

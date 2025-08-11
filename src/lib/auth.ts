@@ -68,6 +68,13 @@ export const authOptions = {
       }
       return session;
     },
+    async redirect({ url, baseUrl }) {
+      // Redirect to admin dashboard after successful auth
+      if (url.startsWith(baseUrl)) {
+        return `${baseUrl}/admin/default`;
+      }
+      return url;
+    },
   },
   pages: {
     signIn: '/auth/sign-in',

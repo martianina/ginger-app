@@ -28,7 +28,7 @@ export default function SignInPage() {
       if (result?.error) {
         setError('Invalid email or password');
       } else {
-        router.push('/'); // Redirect to home page after successful sign-in
+        router.push('/admin/default'); // Redirect to admin dashboard after successful sign-in
       }
     } catch (error) {
       setError('An error occurred during sign-in');
@@ -42,7 +42,7 @@ export default function SignInPage() {
     setError('');
     
     try {
-      await signIn('google', { callbackUrl: '/' });
+      await signIn('google', { callbackUrl: '/admin/default' });
     } catch (error) {
       setError('An error occurred during Google sign-in');
       setIsLoading(false);
